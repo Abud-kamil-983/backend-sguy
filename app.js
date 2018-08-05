@@ -9,7 +9,7 @@ var passport = require('passport');
 var server =  app.listen(3000);
 var social = require('./libs/passport.js')(app, passport);
 var http = require('http');
-
+var port = process.env.PORT || 3000;
 // cors mddleware for client reqeuest
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -46,6 +46,6 @@ fs.readdirSync('./app/controllers').forEach(function(file){
 	}
 });
 
-server.listen(3000, function(){
-	console.log('github app listening on port 3000!')
+server.listen(port, function(){
+	console.log(`github app listening on port ${port}!`)
 });
